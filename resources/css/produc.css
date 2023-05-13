@@ -1,0 +1,26 @@
+#manuBtn {
+    display: none;
+    position: relative;
+}
+
+#manuBtnParent{
+    display: none;
+}
+
+@media screen and (max-width: 580px) {
+    #manuBtn {
+        display: block;
+        /* position: relative; */
+    }
+
+    #manuNav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        width: fit-content;
+        right: 0;
+    }
+    #manuBtnParent{
+        display: block;
+    }
+}

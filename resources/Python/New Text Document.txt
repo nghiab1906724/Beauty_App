@@ -1,0 +1,23 @@
+inputs=df.drop('loai_da', axis='columns')
+le=LabelEncoder()
+inputs['nhay_cam_n']=le.fit_transform(inputs['nhay_cam'])
+inputs['dau_T_n']=le.fit_transform(inputs['dau_chu_T'])
+inputs['dau_U_n']=le.fit_transform(inputs['dau_chu_U'])
+inputs['chan_long_n']=le.fit_transform(inputs['chan_long'])
+inputs['mun_n']=le.fit_transform(inputs['mun'])
+inputs['sac_to_n']=le.fit_transform(inputs['sac_to'])
+inputs['nep_nhan_n']=le.fit_transform(inputs['nep_nhan'])
+inputs_n=inputs.drop(['nhay_cam', 'dau_chu_T', 'dau_chu_U', 'chan_long', 'mun', 'sac_to', 'nep_nhan'], axis='columns')
+
+df['loai_da_n']=le.fit_transform(df['loai_da'])
+target=df.drop(['nhay_cam', 'dau_chu_T', 'dau_chu_U', 'chan_long', 'mun', 'sac_to', 'nep_nhan'], axis='columns')
+target_n=target.drop('loai_da', axis='columns')
+# print(target_n)
+
+dtree = tree.DecisionTreeClassifier()
+dtree = dtree.fit(inputs_n.values, target_n.values)
+# features = ['nhay_cam_n', 'dau_T_n', 'dau_U_n', 'chan_long_n', 'mun_n', 'sac_to_n', 'nep_nhan_n']
+# tree.plot_tree(dtree, feature_names=features)
+dtree.predict([[0,1,1,0,1,1,1]])
+
+tree.plot_tree(dtree, feature_names=features)

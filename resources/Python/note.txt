@@ -1,0 +1,7 @@
+nhay_cam{0,1}
+dau_chu_T{0,1,2}
+dau_chu_U{0,1,2}
+chan_long{0,1}
+mun{0,1,2}
+sac_to{0,1,2}
+nep_nhan{0,1,2,3}
